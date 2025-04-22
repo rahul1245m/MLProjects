@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 from sklearn.model_selection import GridSearchCV
 
-from src.exception import CustomerException
+from src.exception import CustomeException
 
 def save_object(file_path, obj):
     try:
@@ -19,7 +19,7 @@ def save_object(file_path, obj):
             dill.dump(obj,file_obj)
 
     except Exception as e:
-        raise CustomerException(e,sys)
+        raise CustomeException(e,sys)
     
 def evaluate_model(X_train,y_train,X_test,y_test,models,param):
     try:
@@ -50,4 +50,13 @@ def evaluate_model(X_train,y_train,X_test,y_test,models,param):
 
 
     except Exception as e:
-        raise CustomerException(e,sys)
+        raise CustomeException(e,sys)
+    
+
+def load_object(file_path):
+    try:
+        with open(file_path,"rb") as file_obj:
+            return dill.load(file_obj)
+        
+    except Exception as e:
+        raise CustomeException(e,sys)

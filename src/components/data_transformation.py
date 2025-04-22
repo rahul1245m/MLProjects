@@ -9,7 +9,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder,StandardScaler
 
 from src.utils import save_object
-from src.exception import CustomerException
+from src.exception import CustomeException
 from src.logger import logging
 
 
@@ -68,7 +68,7 @@ class DataTransformation:
 
 
         except Exception as e:
-             raise CustomerException(e,sys)
+             raise CustomeException(e,sys)
 
     
     def initiate_data_transformation(self,train_path,test_path):
@@ -121,5 +121,5 @@ class DataTransformation:
 
 
         except Exception as e:
-            raise CustomerException(e,sys)
+            raise CustomeException(e,sys)
         
